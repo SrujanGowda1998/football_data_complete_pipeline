@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: team_performance_insights
+    description: "This model aggregates historical performance data across various seasons for each team."
+    columns:
+      - name: team_name
+        description: "Name of the team"
+        tests:
+          - not_null
+          - unique
+      - name: average_points
+        description: "Average points earned per season"
+        tests:
+          - not_null
+      - name: win_percentage
+        description: "Percentage of games won by the team"
+        tests:
+          - not_null
