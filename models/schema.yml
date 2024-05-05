@@ -1,6 +1,63 @@
 version: 2
 
 models:
+  - name: intermediate_team_performance
+    description: "Aggregated performance data for each team across seasons."
+    columns:
+      - name: team_name
+        description: "Name of the team"
+        tests:
+          - not_null
+          - unique
+      - name: season_id
+        description: "Identifier for the season"
+        tests:
+          - not_null
+      - name: total_wins
+        description: "Total wins in the season"
+        tests:
+          - not_null
+      - name: total_draws
+        description: "Total draws in the season"
+        tests:
+          - not_null
+      - name: total_losses
+        description: "Total losses in the season"
+        tests:
+          - not_null
+      - name: total_matches
+        description: "Total matches played in the season"
+        tests:
+          - not_null
+      - name: total_points
+        description: "Total points earned in the season"
+        tests:
+          - not_null
+
+  - name: intermediate_player_profiles
+    description: "Consolidated player profiles including physical attributes and team details."
+    columns:
+      - name: Player_Name
+        description: "Name of the player"
+        tests:
+          - not_null
+      - name: Team_Name
+        description: "Team of the player"
+        tests:
+          - not_null
+      - name: Position
+        description: "Playing position of the player"
+      - name: Height
+        description: "Height of the player in cm"
+      - name: Preferred_Foot
+        description: "Dominant foot of the player"
+      - name: Country
+        description: "Country of the player"
+      - name: Sport
+        description: "Sport type"
+      - name: Category_Name
+        description: "Category of the team"
+
   - name: team_performance_insights
     description: "This model aggregates historical performance data across various seasons for each team."
     columns:
@@ -18,3 +75,220 @@ models:
         tests:
           - not_null
 
+  - name: comprehensive_team_performance
+    description: "A comprehensive view of each team's performance, including roster stats and season standings."
+    columns:
+      - name: team_name
+        description: "The name of the team"
+        tests:
+          - not_null
+          - unique
+      - name: country_name
+        description: "The country where the team is based"
+        tests:
+          - not_null
+      - name: manager_name
+        description: "Name of the team manager"
+      - name: stadium_name
+        description: "Name of the stadium where the team plays home games"
+      - name: foundation_date
+        description: "The year the team was founded"
+      - name: number_of_players
+        description: "The number of players in the team"
+        tests:
+          - not_null
+      - name: average_market_value
+        description: "Average market value of the players in the team"
+      - name: season_id
+        description: "The season ID for the performance data"
+        tests:
+          - not_null
+      - name: wins
+        description: "Number of wins in the season"
+        tests:
+          - not_null
+      - name: draws
+        description: "Number of draws in the season"
+      - name: losses
+        description: "Number of losses in the season"
+      - name: points
+        description: "Total points accumulated in the season"
+      - name: position
+        description: "Final position of the team in the league table for the season"
+
+  - name: intermediate_team_performance
+    description: "Aggregated performance data for each team across seasons."
+    columns:
+      - name: team_name
+        description: "Name of the team"
+        tests:
+          - not_null
+          - unique
+      - name: season_id
+        description: "Identifier for the season"
+        tests:
+          - not_null
+      - name: total_wins
+        description: "Total wins in the season"
+        tests:
+          - not_null
+      - name: total_draws
+        description: "Total draws in the season"
+        tests:
+          - not_null
+      - name: total_losses
+        description: "Total losses in the season"
+        tests:
+          - not_null
+      - name: total_matches
+        description: "Total matches played in the season"
+        tests:
+          - not_null
+      - name: total_points
+        description: "Total points earned in the season"
+        tests:
+          - not_null
+
+  - name: intermediate_player_profiles
+    description: "Consolidated player profiles including physical attributes and team details."
+    columns:
+      - name: Player_Name
+        description: "Name of the player"
+        tests:
+          - not_null
+      - name: Team_Name
+        description: "Team of the player"
+        tests:
+          - not_null
+      - name: Position
+        description: "Playing position of the player"
+      - name: Height
+        description: "Height of the player in cm"
+      - name: Preferred_Foot
+        description: "Dominant foot of the player"
+      - name: Country
+        description: "Country of the player"
+      - name: Sport
+        description: "Sport type"
+      - name: Category_Name
+        description: "Category of the team"
+
+  - name: intermediate_tournament_outcomes
+    description: "Detailed data on each team's participation and outcomes in tournaments."
+    columns:
+      - name: Tournament_Name
+        description: "Name of the tournament"
+        tests:
+          - not_null
+      - name: team_name
+        description: "Name of the participating team"
+        tests:
+          - not_null
+      - name: position
+        description: "Final position in the tournament"
+      - name: points
+        description: "Points earned in the tournament"
+
+  - name: intermediate_match_outcomes
+    description: "Detailed outcomes of matches including scores, dates, and referee information."
+    columns:
+      - name: match_id
+        description: "Unique identifier for the match"
+        tests:
+          - not_null
+          - unique
+      - name: match_date
+        description: "Date and time of the match"
+        tests:
+          - not_null
+      - name: status
+        description: "Current status of the match"
+      - name: matchday
+        description: "Matchday number in the season"
+      - name: home_team
+        description: "Name of the home team"
+        tests:
+          - not_null
+      - name: away_team
+        description: "Name of the away team"
+        tests:
+          - not_null
+      - name: fulltime_home_goals
+        description: "Full-time goals scored by the home team"
+      - name: fulltime_away_goals
+        description: "Full-time goals scored by the away team"
+      - name: main_referee
+        description: "Name of the main referee for the match"
+      - name: referee_nationality
+        description: "Nationality of the main referee"
+
+  - name: detailed_match_analysis
+    description: "Detailed analysis of match outcomes with an emphasis on referee performance."
+    columns:
+      - name: main_referee
+        description: "Name of the referee overseeing the match"
+        tests:
+          - not_null
+      - name: referee_nationality
+        description: "Nationality of the referee"
+        tests:
+          - not_null
+      - name: total_matches
+        description: "Total matches refereed"
+        tests:
+          - not_null
+      - name: home_wins
+        description: "Number of home team wins"
+        tests:
+          - not_null
+      - name: away_wins
+        description: "Number of away team wins"
+        tests:
+          - not_null
+      - name: draws
+        description: "Number of draws"
+        tests:
+          - not_null
+
+  - name: comprehensive_team_performance_analysis
+    description: "Combines overall team performance insights with detailed seasonal performance metrics for each team."
+    columns:
+      - name: team_name
+        description: "The name of the team."
+        tests:
+          - not_null
+          - unique
+
+      - name: seasons_played
+        description: "The number of seasons played by the team."
+        tests:
+          - not_null
+
+      - name: average_points
+        description: "The average points per season for the team."
+        tests:
+          - not_null
+
+      - name: win_percentage
+        description: "The win percentage of the team across all seasons."
+        tests:
+          - not_null
+
+      - name: season_id
+        description: "The identifier for the specific season."
+        tests:
+          - not_null
+
+      - name: total_wins
+        description: "Total wins in the specific season."
+        tests:
+          - not_null
+
+      - name: total_draws
+        description: "Total draws in the specific season."
+        tests:
+          - not_null
+
+      - name: total_losses
+        description: "Total losses in the specific season."
+        
