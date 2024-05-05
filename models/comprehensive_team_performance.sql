@@ -6,7 +6,6 @@ WITH team_details AS (
         ti.country_name,
         ti.manager_name,
         ti.stadium_name,
-        ti.foundation_date
     FROM `datamanagemant2.data_management_2_dataset.team_info` ti
 ),
 
@@ -14,7 +13,8 @@ player_stats AS (
     SELECT
         tp.team_name,
         COUNT(tp.player_name) AS number_of_players,
-        AVG(tp.proposed_market_value) AS average_market_value
+        -- Round the average market value to two decimal places
+        ROUND(AVG(tp.proposed_market_value), 2) AS average_market_value
     FROM `datamanagemant2.data_management_2_dataset.team_players_info` tp
     GROUP BY tp.team_name
 ),
@@ -36,7 +36,6 @@ SELECT
     td.country_name,
     td.manager_name,
     td.stadium_name,
-    td.foundation_date,
     ps.number_of_players,
     ps.average_market_value,
     tp.season_id,
