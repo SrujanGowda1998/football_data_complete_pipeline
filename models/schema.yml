@@ -17,3 +17,4 @@ models:
         description: "Percentage of games won by the team"
         tests:
           - not_null
+
