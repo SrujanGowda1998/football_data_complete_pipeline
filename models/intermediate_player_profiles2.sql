@@ -6,7 +6,7 @@ WITH player_data AS (
         p.Team_Name,
         p.Position,
         p.Height,
-        p.Preferred_Foot,
+        COALESCE(p.Preferred_Foot, 'n/a') AS Preferred_Foot,
         p.Country,
         t.Sport,
         t.Category_Name
